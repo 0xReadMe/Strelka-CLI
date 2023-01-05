@@ -1,0 +1,12 @@
+_gid=GA1.2.1643730255.1671625889
+_ga=GA1.2.1715973485.1671625889
+_ym_d=1671625889
+_ym_uid=1671625888601216358
+_gat_UA-94050308-2=1
+_ym_visorc=w
+csrftoken=sCcXKlbANcB3GgC14lf8pkwCFqmsaY2g7qLYM4P9pWot2Su4Zob2oGFb6YWbPxSe
+strelkacardrusid=x5roreybj50tlsmwlmdp7cadc8fk4u5q
+csrftoken=sCcXKlbANcB3GgC14lf8pkwCFqmsaY2g7qLYM4P9pWot2Su4Zob2oGFb6YWbPxSe
+strelkacardrusid=apguiv4eh1vgdowsfgp789efrafra19h
+_ym_isad=2
+__ddg1_=Cw6CvFGZxobjNu7M4Kto
