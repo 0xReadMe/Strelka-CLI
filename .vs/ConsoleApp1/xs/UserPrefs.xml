@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{E6BEB4D3-4C78-4CE0-8657-55796DBAA90A}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleApp1/StrelkaCard.cs">
+    <Files>
+      <File FileName="ConsoleApp1/StrelkaSelenium.cs" Line="1" Column="1" />
+      <File FileName="ConsoleApp1/StrelkaCard.cs" Line="6" Column="20" />
+      <File FileName="ConsoleApp1/Program.cs" Line="1" Column="1" />
+      <File FileName="ConsoleApp1/Drivers.cs" Line="1" Column="1" />
+      <File FileName="ConsoleApp1/Account.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ConsoleApp1" expanded="True">
+            <Node name="ConsoleApp1" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ConsoleApp1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

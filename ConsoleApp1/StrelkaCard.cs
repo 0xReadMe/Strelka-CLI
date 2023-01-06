@@ -1,16 +1,25 @@
-struct StrelkaCard
+namespace ConsoleApp1
 {
-    string number;
-    StrelkaType type;
-    double balance;
+    struct StrelkaCard
+    {
+        string number { get; }
+        StrelkaType type { get; }
+        double balance { get; }
+        bool validated { get; }
 
+        public StrelkaCard(string number, StrelkaType type, double balance)
+        {
+            this.number = number;
+            this.type = type;
+            this.balance = balance;
+        }
+    }
 
-}
-
-enum StrelkaType
-{
-    Default,
-    Benefit,
-    PupilCity,
-    PupilVillage
+    enum StrelkaType
+    {
+        Default,
+        Benefit,
+        PupilCity,
+        PupilVillage
+    }
 }
