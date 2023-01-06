@@ -2,9 +2,9 @@
 using OpenQA.Selenium;
 using System;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Browsers
 {
-    internal class Safari
+    internal class Safari : Browser
     {
         //public IWebDriver Safari()
         //{
