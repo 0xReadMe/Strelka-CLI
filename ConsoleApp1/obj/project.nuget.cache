@@ -10,5 +10,12 @@
     "/Users/andrey/.nuget/packages/selenium.webdriver.geckodriver/0.32.0/selenium.webdriver.geckodriver.0.32.0.nupkg.sha512",
     "/Users/andrey/.nuget/packages/selenium.webdriver.iedriver/4.7.0/selenium.webdriver.iedriver.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/andrey/Strelka-CLI/ConsoleApp1/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
