@@ -15,22 +15,22 @@
           }
         }
       },
-      "Selenium.WebDriver/4.6.0": {
+      "Selenium.WebDriver/4.7.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
-          "lib/net5.0/WebDriver.dll": {}
+          "lib/net6.0/WebDriver.dll": {}
         },
         "runtime": {
-          "lib/net5.0/WebDriver.dll": {}
+          "lib/net6.0/WebDriver.dll": {}
         },
         "build": {
           "build/Selenium.WebDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
+      "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -42,7 +42,7 @@
           "build/Selenium.WebDriver.GeckoDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.IEDriver/4.6.0": {
+      "Selenium.WebDriver.IEDriver/4.7.0": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.IEDriver.targets": {}
@@ -78,10 +78,10 @@
         "packageIcon.png"
       ]
     },
-    "Selenium.WebDriver/4.6.0": {
-      "sha512": "wdkzNyVYvdI0YOeScP42ubshPOjY7dj8aXHyetlhVTqKo5gAbYnOJU//W5q0hVSVw4hsisNvgR/UQqPvgM8rew==",
+    "Selenium.WebDriver/4.7.0": {
+      "sha512": "WNGX6JxjBS5f79PQnrB4oO+5U83f8tZfND+rqX2YJVHPdv3xS/zZwljWqGu5UDhluo3kEuuT+DuGEZW8/+9fOA==",
       "type": "package",
-      "path": "selenium.webdriver/4.6.0",
+      "path": "selenium.webdriver/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -92,19 +92,20 @@
         "lib/net47/WebDriver.dll",
         "lib/net48/WebDriver.dll",
         "lib/net5.0/WebDriver.dll",
+        "lib/net6.0/WebDriver.dll",
         "lib/netstandard2.0/WebDriver.dll",
         "lib/netstandard2.1/WebDriver.dll",
         "manager/linux/selenium-manager",
         "manager/macos/selenium-manager",
         "manager/windows/selenium-manager.exe",
-        "selenium.webdriver.4.6.0.nupkg.sha512",
+        "selenium.webdriver.4.7.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {
-      "sha512": "0xkXvzwRXVbduG62Z7+vhM4a85x3mWlfGUSQn+4PdeVJdkkssVe4rV80J+WBEOfUJAjga7L6YydFkbd9ONJqxQ==",
+    "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {
+      "sha512": "wrDUVsoQHQct9BodCFgRi1LMKGhwv27ANuS8l7ZXcOn/VS2NqcxxBhSAkcucx4CoZgidny0+ifnFS95nTmnVvg==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/107.0.5304.6200",
+      "path": "selenium.webdriver.chromedriver/108.0.5359.7100",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -116,7 +117,7 @@
         "driver/mac64arm/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.107.0.5304.6200.nupkg.sha512",
+        "selenium.webdriver.chromedriver.108.0.5359.7100.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
@@ -140,10 +141,10 @@
         "selenium.webdriver.geckodriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.IEDriver/4.6.0": {
-      "sha512": "8d1xaynBLH6deYr2BpjLEyhzR9hUW7Bm1Ij2E4tPlWp9mqep5EQLvsY3E8/7B3YgABRrqGir8mJweKRipmkEKg==",
+    "Selenium.WebDriver.IEDriver/4.7.0": {
+      "sha512": "G9fCMKZZT3aNR3hAmApMEppRLUVcU12ePVa1k2wRhy/akZetJ2RJfJu8fJp+hePadlYbi5LErMkdwT9RaS5YsA==",
       "type": "package",
-      "path": "selenium.webdriver.iedriver/4.6.0",
+      "path": "selenium.webdriver.iedriver/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -152,46 +153,38 @@
         "build/Selenium.WebDriver.IEDriver.targets",
         "driver/IEDriverServer.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.iedriver.4.6.0.nupkg.sha512",
+        "selenium.webdriver.iedriver.4.7.0.nupkg.sha512",
         "selenium.webdriver.iedriver.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Selenium.WebDriver >= 4.6.0",
-      "Selenium.WebDriver.ChromeDriver >= 107.0.5304.6200",
+      "Selenium.WebDriver >= 4.7.0",
+      "Selenium.WebDriver.ChromeDriver >= 108.0.5359.7100",
       "Selenium.WebDriver.GeckoDriver >= 0.32.0",
-      "Selenium.WebDriver.IEDriver >= 4.6.0"
+      "Selenium.WebDriver.IEDriver >= 4.7.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\8-bit\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/andrey/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\8-bit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\obj\\",
+      "projectPath": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
+      "packagesPath": "/Users/andrey/.nuget/packages/",
+      "outputPath": "/Users/andrey/Strelka-CLI/ConsoleApp1/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\8-bit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/andrey/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -212,11 +205,11 @@
         "dependencies": {
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.6.0, )"
+            "version": "[4.7.0, )"
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
-            "version": "[107.0.5304.6200, )"
+            "version": "[108.0.5359.7100, )"
           },
           "Selenium.WebDriver.GeckoDriver": {
             "target": "Package",
@@ -224,7 +217,7 @@
           },
           "Selenium.WebDriver.IEDriver": {
             "target": "Package",
-            "version": "[4.6.0, )"
+            "version": "[4.7.0, )"
           }
         },
         "imports": [
@@ -243,8 +236,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/andrey/Strelka-CLI/ConsoleApp1/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

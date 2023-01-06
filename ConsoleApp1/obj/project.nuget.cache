@@ -1,14 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "klSCN2vqNXTKziWBLsUK1CS92bK+Ec7bQ2kKgbY3Xt2o61P65B32Gc0IlSQyvzBPM8lvG1gCDMMbaoyPDzA8BQ==",
+  "dgSpecHash": "tmG1PQqw7r+/7eQbv7BlfFHH4MX1IqeRP/9Xx0Twh0FW27qmPW07xeyE55EXIZ0vR52IDSGfcT4ws9FhdH6d4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
+  "projectFilePath": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\8-bit\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver\\4.6.0\\selenium.webdriver.4.6.0.nupkg.sha512",
-    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver.chromedriver\\107.0.5304.6200\\selenium.webdriver.chromedriver.107.0.5304.6200.nupkg.sha512",
-    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver.geckodriver\\0.32.0\\selenium.webdriver.geckodriver.0.32.0.nupkg.sha512",
-    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver.iedriver\\4.6.0\\selenium.webdriver.iedriver.4.6.0.nupkg.sha512"
+    "/Users/andrey/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/andrey/.nuget/packages/selenium.webdriver/4.7.0/selenium.webdriver.4.7.0.nupkg.sha512",
+    "/Users/andrey/.nuget/packages/selenium.webdriver.chromedriver/108.0.5359.7100/selenium.webdriver.chromedriver.108.0.5359.7100.nupkg.sha512",
+    "/Users/andrey/.nuget/packages/selenium.webdriver.geckodriver/0.32.0/selenium.webdriver.geckodriver.0.32.0.nupkg.sha512",
+    "/Users/andrey/.nuget/packages/selenium.webdriver.iedriver/4.7.0/selenium.webdriver.iedriver.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/andrey/Strelka-CLI/ConsoleApp1/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
