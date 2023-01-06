@@ -2,18 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleApp1/StrelkaCard.cs">
     <Files>
-      <File FileName="ConsoleApp1/StrelkaSelenium.cs" Line="21" Column="19" />
       <File FileName="ConsoleApp1/Program.cs" />
       <File FileName="ConsoleApp1/StrelkaCard.cs" Line="21" Column="17" />
-      <File FileName="ConsoleApp1/Account.cs" Line="13" Column="1" />
+      <File FileName="ConsoleApp1/Account.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ConsoleApp1" expanded="True">
-            <Node name="ConsoleApp1" expanded="True">
-              <Node name="StrelkaCard.cs" selected="True" />
-            </Node>
+            <Node name="ConsoleApp1" expanded="True" />
           </Node>
         </State>
       </Pad>
