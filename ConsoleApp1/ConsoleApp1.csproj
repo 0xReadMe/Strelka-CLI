@@ -14,4 +14,7 @@
     <PackageReference Include="Selenium.WebDriver.IEDriver" Version="4.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Strelka\Strelka_DLL.csproj" />
+  </ItemGroup>
 </Project>

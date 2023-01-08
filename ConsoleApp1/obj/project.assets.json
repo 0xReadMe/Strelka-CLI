@@ -47,6 +47,22 @@
         "build": {
           "build/Selenium.WebDriver.IEDriver.targets": {}
         }
+      },
+      "Strelka/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Selenium.WebDriver": "4.7.0",
+          "Selenium.WebDriver.ChromeDriver": "108.0.5359.7100",
+          "Selenium.WebDriver.GeckoDriver": "0.32.0",
+          "Selenium.WebDriver.IEDriver": "4.7.0"
+        },
+        "compile": {
+          "bin/placeholder/Strelka.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Strelka.dll": {}
+        }
       }
     }
   },
@@ -156,6 +172,11 @@
         "selenium.webdriver.iedriver.4.7.0.nupkg.sha512",
         "selenium.webdriver.iedriver.nuspec"
       ]
+    },
+    "Strelka/1.0.0": {
+      "type": "project",
+      "path": "../Strelka/Strelka_DLL.csproj",
+      "msbuildProject": "../Strelka/Strelka_DLL.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -163,7 +184,8 @@
       "Selenium.WebDriver >= 4.7.0",
       "Selenium.WebDriver.ChromeDriver >= 108.0.5359.7100",
       "Selenium.WebDriver.GeckoDriver >= 0.32.0",
-      "Selenium.WebDriver.IEDriver >= 4.7.0"
+      "Selenium.WebDriver.IEDriver >= 4.7.0",
+      "Strelka >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -190,7 +212,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj": {
+              "projectPath": "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -239,13 +265,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/andrey/Strelka-CLI/ConsoleApp1/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tmG1PQqw7r+/7eQbv7BlfFHH4MX1IqeRP/9Xx0Twh0FW27qmPW07xeyE55EXIZ0vR52IDSGfcT4ws9FhdH6d4w==",
+  "dgSpecHash": "+BpTZicdvESLfya/zxu9xA35hT29ceEABmdyKH/TJ9urdPeGWQNyPK4vgShYyxdX8YZlrZ2KErVBce5kD2n6JQ==",
   "success": true,
   "projectFilePath": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
   "expectedPackageFiles": [
@@ -10,12 +10,5 @@
     "/Users/andrey/.nuget/packages/selenium.webdriver.geckodriver/0.32.0/selenium.webdriver.geckodriver.0.32.0.nupkg.sha512",
     "/Users/andrey/.nuget/packages/selenium.webdriver.iedriver/4.7.0/selenium.webdriver.iedriver.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/andrey/Strelka-CLI/ConsoleApp1/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

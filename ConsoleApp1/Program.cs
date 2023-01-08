@@ -1,6 +1,6 @@
-﻿using ConsoleApp1;
-using System;
+﻿using System;
 using System.Diagnostics;
+using Strelka_DLL;
 
 const string login = "+79153018803";
 const string pass = "fomxif-7voFha-zutsep";
