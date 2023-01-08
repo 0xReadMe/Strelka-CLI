@@ -1,0 +1,15 @@
+/Users/andrey/Strelka-CLI/Strelka/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
+/Users/andrey/Strelka-CLI/Strelka/bin/Debug/net6.0/selenium-manager/macos/selenium-manager
+/Users/andrey/Strelka-CLI/Strelka/bin/Debug/net6.0/selenium-manager/windows/selenium-manager.exe
+/Users/andrey/Strelka-CLI/Strelka/bin/Debug/net6.0/Strelka.deps.json
+/Users/andrey/Strelka-CLI/Strelka/bin/Debug/net6.0/Strelka.dll
+/Users/andrey/Strelka-CLI/Strelka/bin/Debug/net6.0/Strelka.pdb
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka_DLL.csproj.AssemblyReference.cache
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka_DLL.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka_DLL.AssemblyInfoInputs.cache
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka_DLL.AssemblyInfo.cs
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka_DLL.csproj.CoreCompileInputs.cache
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka.dll
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/refint/Strelka.dll
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/Strelka.pdb
+/Users/andrey/Strelka-CLI/Strelka/obj/Debug/net6.0/ref/Strelka.dll
