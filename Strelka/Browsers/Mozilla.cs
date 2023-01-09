@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium;
-using System;
 
-namespace ConsoleApp1.Browsers
+namespace Strelka_DLL
 {
-    internal class Mozilla : Browser
+    class Mozilla : Browser
     {
         public Mozilla()
         {

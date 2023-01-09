@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "+BpTZicdvESLfya/zxu9xA35hT29ceEABmdyKH/TJ9urdPeGWQNyPK4vgShYyxdX8YZlrZ2KErVBce5kD2n6JQ==",
+  "dgSpecHash": "0V6mr+4/LOXk6WbJVT0BmXRR2dyv+Dbi/c251IrXRkFl/z/zDdUEPjP5L3SEDf7Je/whjOdMumq05bOMQMahmw==",
   "success": true,
-  "projectFilePath": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
+  "projectFilePath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
   "expectedPackageFiles": [
-    "/Users/andrey/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
-    "/Users/andrey/.nuget/packages/selenium.webdriver/4.7.0/selenium.webdriver.4.7.0.nupkg.sha512",
-    "/Users/andrey/.nuget/packages/selenium.webdriver.chromedriver/108.0.5359.7100/selenium.webdriver.chromedriver.108.0.5359.7100.nupkg.sha512",
-    "/Users/andrey/.nuget/packages/selenium.webdriver.geckodriver/0.32.0/selenium.webdriver.geckodriver.0.32.0.nupkg.sha512",
-    "/Users/andrey/.nuget/packages/selenium.webdriver.iedriver/4.7.0/selenium.webdriver.iedriver.4.7.0.nupkg.sha512"
+    "C:\\Users\\8-bit\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512",
+    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver.chromedriver\\108.0.5359.7100\\selenium.webdriver.chromedriver.108.0.5359.7100.nupkg.sha512",
+    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver.geckodriver\\0.32.0\\selenium.webdriver.geckodriver.0.32.0.nupkg.sha512",
+    "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver.iedriver\\4.7.0\\selenium.webdriver.iedriver.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

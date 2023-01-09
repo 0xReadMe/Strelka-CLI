@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
-namespace ConsoleApp1.Browsers
+
+namespace Strelka_DLL
 {
-    internal class Edge : Browser
+    class Edge : Browser
     {
         public Edge()
         {

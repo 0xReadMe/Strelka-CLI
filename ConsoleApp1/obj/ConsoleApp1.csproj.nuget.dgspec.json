@@ -1,33 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj": {}
+    "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj": {
+    "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
-        "packagesPath": "/Users/andrey/.nuget/packages/",
-        "outputPath": "/Users/andrey/Strelka-CLI/ConsoleApp1/obj/",
+        "projectPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\8-bit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/andrey/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\8-bit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj": {
-                "projectPath": "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj"
+              "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj": {
+                "projectPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj"
               }
             }
           }
@@ -75,26 +82,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj": {
+    "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj",
+        "projectUniqueName": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj",
         "projectName": "Strelka",
-        "projectPath": "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj",
-        "packagesPath": "/Users/andrey/.nuget/packages/",
-        "outputPath": "/Users/andrey/Strelka-CLI/Strelka/obj/",
+        "projectPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj",
+        "packagesPath": "C:\\Users\\8-bit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/andrey/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\8-bit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -146,7 +160,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
