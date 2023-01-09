@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "3aqGvlVRKT1SmBNNtf5MuKAXM+7cugOvSq4EB68zF++Qfxma5gxjvVGLBix6q5TvujJF3Np2PEr+sLgma6jyjg==",
+=======
+  "dgSpecHash": "0V6mr+4/LOXk6WbJVT0BmXRR2dyv+Dbi/c251IrXRkFl/z/zDdUEPjP5L3SEDf7Je/whjOdMumq05bOMQMahmw==",
+>>>>>>> backend1
   "success": true,
   "projectFilePath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
   "expectedPackageFiles": [

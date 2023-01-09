@@ -11,7 +11,8 @@
           "Selenium.WebDriver": "4.7.0",
           "Selenium.WebDriver.ChromeDriver": "108.0.5359.7100",
           "Selenium.WebDriver.GeckoDriver": "0.32.0",
-          "Selenium.WebDriver.IEDriver": "4.7.0"
+          "Selenium.WebDriver.IEDriver": "4.7.0",
+          "Strelka": "1.0.0"
         },
         "runtime": {
           "ConsoleApp1.dll": {}
@@ -38,7 +39,18 @@
       },
       "Selenium.WebDriver.ChromeDriver/108.0.5359.7100": {},
       "Selenium.WebDriver.GeckoDriver/0.32.0": {},
-      "Selenium.WebDriver.IEDriver/4.7.0": {}
+      "Selenium.WebDriver.IEDriver/4.7.0": {},
+      "Strelka/1.0.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.7.0",
+          "Selenium.WebDriver.ChromeDriver": "108.0.5359.7100",
+          "Selenium.WebDriver.GeckoDriver": "0.32.0",
+          "Selenium.WebDriver.IEDriver": "4.7.0"
+        },
+        "runtime": {
+          "Strelka.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -81,6 +93,11 @@
       "sha512": "sha512-G9fCMKZZT3aNR3hAmApMEppRLUVcU12ePVa1k2wRhy/akZetJ2RJfJu8fJp+hePadlYbi5LErMkdwT9RaS5YsA==",
       "path": "selenium.webdriver.iedriver/4.7.0",
       "hashPath": "selenium.webdriver.iedriver.4.7.0.nupkg.sha512"
+    },
+    "Strelka/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
