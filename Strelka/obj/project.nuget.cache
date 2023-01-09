@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3aqGvlVRKT1SmBNNtf5MuKAXM+7cugOvSq4EB68zF++Qfxma5gxjvVGLBix6q5TvujJF3Np2PEr+sLgma6jyjg==",
+  "dgSpecHash": "IkHUy+RpEmiceh6RqSwfzUICzBE4b5zZzpH0oS9slBgGV4xv4ZMAma2RWJwdU21CSAEHF7WCP4+CXapo74il4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
+  "projectFilePath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\8-bit\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\8-bit\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512",
