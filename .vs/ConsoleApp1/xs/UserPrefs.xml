@@ -4,11 +4,11 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Strelka/Account.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleApp1/Program.cs">
     <Files>
-      <File FileName="Strelka/Account.cs" Line="23" Column="2" />
-      <File FileName="Strelka/StrelkaCard.cs" Line="1" Column="18" />
-      <File FileName="ConsoleApp1/Program.cs" Line="3" Column="1" />
+      <File FileName="Strelka/Account.cs" Line="3" Column="8" />
+      <File FileName="Strelka/StrelkaCard.cs" Line="17" Column="8" />
+      <File FileName="ConsoleApp1/Program.cs" Line="4" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,9 +17,7 @@
             <Node name="ConsoleApp1" expanded="True">
               <Node name="Dependencies" expanded="True" />
             </Node>
-            <Node name="Strelka_DLL" expanded="True" selected="True">
-              <Node name="Dependencies" expanded="True" />
-            </Node>
+            <Node name="Strelka_DLL" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
