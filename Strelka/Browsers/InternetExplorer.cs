@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
-using System;
 
-namespace ConsoleApp1.Browsers
+namespace Strelka_DLL
 {
-    internal class InternetExplorer : Browser
+    class InternetExplorer : Browser
     {
         public InternetExplorer()
         {

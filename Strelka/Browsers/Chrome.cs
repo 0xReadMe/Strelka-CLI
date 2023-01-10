@@ -1,15 +1,13 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using System;
-using OpenQA.Selenium.Interactions;
 
-namespace ConsoleApp1.Browsers
+namespace Strelka_DLL
 {
-    internal class Chrome : Browser
+    class Chrome : Browser
     {
         public Chrome() 
         {
-            
+            InitializeChrome();
         }
 
         public IWebDriver InitializeChrome()

@@ -1,20 +1,24 @@
 ﻿using OpenQA.Selenium.Safari;
 using OpenQA.Selenium;
-using System;
 
-namespace ConsoleApp1.Browsers
+
+namespace Strelka_DLL
 {
-    internal class Safari : Browser
+    class Safari : Browser
     {
-        //public IWebDriver Safari()
-        //{
-        //    SafariOptions options = new();
+        public Safari()
+        {
+        
+        }
+        public IWebDriver InitializeSafari()
+        {
+            SafariOptions options = new();
 
-        //    SafariDriverService service = SafariDriverService.CreateDefaultService(Path + "\\driver");
-        //    service.HideCommandPromptWindow = true;
-        //    service.SuppressInitialDiagnosticInformation = true;
+            SafariDriverService service = SafariDriverService.CreateDefaultService(Path + "\\driver");
+            service.HideCommandPromptWindow = true;
+            service.SuppressInitialDiagnosticInformation = true;
 
-        //    return new SafariDriver(service, options) { Url = URL };
-        //}
+            return new SafariDriver(service, options) { Url = URL };
+        }
     }
 }
