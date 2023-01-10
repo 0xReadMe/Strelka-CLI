@@ -1,14 +1,11 @@
 ﻿<Properties StartupConfiguration="{E6BEB4D3-4C78-4CE0-8657-55796DBAA90A}|Default">
-  <MonoDevelop.Ide.ItemProperties.ConsoleApp1 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Strelka/Account.cs">
     <Files>
       <File FileName="Strelka/Account.cs" Line="23" Column="2" />
       <File FileName="Strelka/StrelkaCard.cs" Line="1" Column="18" />
       <File FileName="ConsoleApp1/Program.cs" Line="3" Column="1" />
+      <File FileName="Strelka/Browser.cs" Line="1" Column="1" />
+      <File FileName="Strelka/Parser.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,14 +14,20 @@
             <Node name="ConsoleApp1" expanded="True">
               <Node name="Dependencies" expanded="True" />
             </Node>
-            <Node name="Strelka_DLL" expanded="True" selected="True">
+            <Node name="Strelka_DLL" expanded="True">
               <Node name="Dependencies" expanded="True" />
+              <Node name="Account.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.ConsoleApp1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

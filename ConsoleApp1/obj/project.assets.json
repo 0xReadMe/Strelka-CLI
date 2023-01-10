@@ -189,40 +189,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\8-bit\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/andrey/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\8-bit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\ConsoleApp1\\obj\\",
+      "projectPath": "/Users/andrey/Strelka-CLI/ConsoleApp1/ConsoleApp1.csproj",
+      "packagesPath": "/Users/andrey/.nuget/packages/",
+      "outputPath": "/Users/andrey/Strelka-CLI/ConsoleApp1/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\8-bit\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/andrey/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj": {
-              "projectPath": "C:\\Users\\8-bit\\Desktop\\Strelka-CLI\\Strelka\\Strelka_DLL.csproj"
+            "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj": {
+              "projectPath": "/Users/andrey/Strelka-CLI/Strelka/Strelka_DLL.csproj"
             }
           }
         }
@@ -270,8 +262,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/andrey/Strelka-CLI/ConsoleApp1/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
