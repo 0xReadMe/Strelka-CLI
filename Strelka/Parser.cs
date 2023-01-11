@@ -6,44 +6,46 @@ namespace Strelka_DLL
     public class Parser
     {
         public IWebDriver Browser { get; set; }
+        private Chrome _chrome = new Chrome();
+        private Mozilla _mozilla = new Mozilla();
+        private InternetExplorer _IE = new InternetExplorer();
+        private Edge _edge = new Edge();
+        private Safari _safari = new Safari();
 
         public Parser()
         {
+            
             // TODO: конструкция свич с выбором браузера на основе парса браузеров
             try
             {
-                Chrome chrome = new Chrome();
-                Browser = chrome.InitializeChrome();
+                
+                Browser = _chrome.InitializeChrome();
             }
             catch (Exception e)
             {
                 Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
                 try
                 {
-                    Mozilla mozilla = new Mozilla();
-                    Browser = mozilla.InitializeMozilla();
+                    Browser = _mozilla.InitializeMozilla();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
                     try
                     {
-                        InternetExplorer IE = new InternetExplorer();
-                        Browser = IE.InitializeIE();
+                        Browser = _IE.InitializeIE();
                     }
                     catch
                     {
                         try
                         {
-                            Edge edge = new Edge();
-                            Browser = edge.InitializeEdge();
+                            Browser = _edge.InitializeEdge();
                         }
                         catch
                         {
                             try
                             {
-                                Safari safari = new Safari();
-                                Browser = safari.InitializeSafari();
+                                Browser = _safari.InitializeSafari();
                             }
                             catch
                             {
@@ -71,19 +73,14 @@ namespace Strelka_DLL
             inputField.SendKeys(cardNumber);
 
             // Find and click button for activate AngularJS script and load div-block with balance
-            IWebElement buttonClick = FindCSS("body > div.snap-content > div > section.landing-check.card-background " +
-                "> div.container.tile-container > " +
-                "div.tile-cols > div.tile-right > " +
-                "div.tile-row.ng-scope > div.tile-box.tile-link.tile-big " +
-                "> form > " +
-                "div.tile-link.tile-box.tile-small.ng-pristine.ng-untouched.ng-valid.ng-isolate-scope > img"); 
+            IWebElement buttonClick = FindCSS("body > div.snap-content > div > section.landing-check.card-background > div.container.tile-container > div.tile-cols > div.tile-right > " +
+                "div.tile-row.ng-scope > div.tile-box.tile-link.tile-big > form > div.tile-link.tile-box.tile-small.ng-pristine.ng-untouched.ng-valid.ng-isolate-scope > img"); 
             buttonClick.Click();
             Thread.Sleep(1000); // Delay for wait a full load AngularJS script
 
-            
             var balance = FindXpath("//p[@class='ng-binding']").GetAttribute("textContent"); // Find a p-block with  balance and get them text
 
-            // Check if Angular script is slow and he return "--" 
+            // Check if Angular script is slowly then our program and he return "--" 
             if (balance == "--")
             {
                 Browser.Navigate().Refresh();
@@ -103,16 +100,13 @@ namespace Strelka_DLL
             FindCSS(".header-auth-in").Click();
             Thread.Sleep(500); // A little delay for load form
 
-            
             IWebElement inputLogin = FindCSS(".login > form:nth-child(3) > div:nth-child(1) > input:nth-child(2)"); // Find input field, click them and send "login" to form
             inputLogin.Click();
             inputLogin.SendKeys(login);
 
-            
             IWebElement inputPwd = FindCSS(".login > form:nth-child(3) > div:nth-child(2) > input:nth-child(2)"); // Find input field
             inputPwd.Click();
             inputPwd.SendKeys(pwd);
-
             
             FindCSS(".login > form:nth-child(3) > div:nth-child(4) > div:nth-child(1) > label:nth-child(1) > input:nth-child(1)").Click(); // Click to checkbox "Запомнить меня"
 
@@ -171,9 +165,25 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Catch mail from personal account on strelkacard.ru
+        /// Get discount validity period
+        /// </summary>
+        public void GetDiscountValidityPeriod() 
+        {
+        
+        }
+
+        /// <summary>
+        /// Get mail from personal account on strelkacard.ru
         /// </summary>
         public void GetPersonalAccountMail() 
+        {
+        
+        }
+
+        /// <summary>
+        /// Get the count of rides to go to the next discount level
+        /// </summary>
+        public void RideForNextLevel() 
         {
         
         }
@@ -210,6 +220,8 @@ namespace Strelka_DLL
         #endregion
 
         #region UtilsMethods
+
+        // Methods to simplify code reading
         private IWebElement FindCSS(string SelectorCSS)
         {
             return Browser.FindElement(By.CssSelector(SelectorCSS));
@@ -222,31 +234,20 @@ namespace Strelka_DLL
         {
             return Browser.FindElement(By.ClassName(className));
         }
-        public void CloseWeb()
-        {
-            Browser.Quit();
-        }
+
+        /// <summary>
+        /// Static method for kill our browser processes
+        /// </summary>
         public static void KillProcesses()
         {
-            // names of processes, which need to kill
-            List<string> name = new List<string> { "chromedriver", "geckodriver" };
-
-            // get all processes in system
-            System.Diagnostics.Process[] process = System.Diagnostics.Process.GetProcesses();
-
-            // go through each process
-            foreach (System.Diagnostics.Process processName in process)
+            List<string> name = new List<string> { "chromedriver", "geckodriver" }; // Names of processes, which need to kill
+            System.Diagnostics.Process[] process = System.Diagnostics.Process.GetProcesses(); // Get all processes in system
+            foreach (System.Diagnostics.Process processName in process) // Go through each process
             {
                 foreach (string s in name)
                 {
-                    if (processName.ProcessName.ToLower() == s.ToLower())
-                    // find a process to kill
-                    {
-                        processName.Kill(); // kill them :)
-
-                        // debugging
-                        //Console.WriteLine($"Process {s.ToLower()} KILL");
-                    }
+                    if (processName.ProcessName.ToLower() == s.ToLower()) // find a process to kill
+                        processName.Kill(); // Kill them
                 }
             }
         }
