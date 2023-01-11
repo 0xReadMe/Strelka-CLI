@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-
+using System.Collections.ObjectModel;
 
 namespace Strelka_DLL
 {
@@ -9,6 +9,7 @@ namespace Strelka_DLL
 
         public Parser()
         {
+            // TODO: конструкция свич с выбором браузера на основе парса браузеров
             try
             {
                 Chrome chrome = new Chrome();
@@ -16,21 +17,17 @@ namespace Strelka_DLL
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n" +
-                    $"{e}");
+                Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
                 try
                 {
-                    // Init Gecko Driver;
                     Mozilla mozilla = new Mozilla();
                     Browser = mozilla.InitializeMozilla();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n" +
-                        $"{ex}");
+                    Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
                     try
                     {
-                        //TODO: IE
                         InternetExplorer IE = new InternetExplorer();
                         Browser = IE.InitializeIE();
                     }
@@ -38,7 +35,6 @@ namespace Strelka_DLL
                     {
                         try
                         {
-                            //TODO: Edge
                             Edge edge = new Edge();
                             Browser = edge.InitializeEdge();
                         }
@@ -46,7 +42,6 @@ namespace Strelka_DLL
                         {
                             try
                             {
-                                //TODO: Safari
                                 Safari safari = new Safari();
                                 Browser = safari.InitializeSafari();
                             }
@@ -62,24 +57,31 @@ namespace Strelka_DLL
         }
 
         #region Methods
-        // Method for get balance on strelkacard.ru
+
+        /// <summary>
+        /// Method for get balance on strelkacard.ru
+        /// </summary>
+        /// <param name="cardNumber">Card number</param>
+        /// <returns>Balance of strelka card</returns>
         public string GetBalance(string cardNumber)
         {
-            // Find input field for send card number
-            IWebElement inputField = Browser.FindElement(By.Name("cardnum"));
+            Browser.Navigate().GoToUrl(Browser.Url);
+            IWebElement inputField = Browser.FindElement(By.Name("cardnum")); // Find input field for send card number
             inputField.Click();
             inputField.SendKeys(cardNumber);
 
             // Find and click button for activate AngularJS script and load div-block with balance
             IWebElement buttonClick = FindCSS("body > div.snap-content > div > section.landing-check.card-background " +
-                "> div.container.tile-container > div.tile-cols > div.tile-right > div.tile-row.ng-scope > div.tile-box.tile-link.tile-big " +
-                "> form > div.tile-link.tile-box.tile-small.ng-pristine.ng-untouched.ng-valid.ng-isolate-scope > img");
+                "> div.container.tile-container > " +
+                "div.tile-cols > div.tile-right > " +
+                "div.tile-row.ng-scope > div.tile-box.tile-link.tile-big " +
+                "> form > " +
+                "div.tile-link.tile-box.tile-small.ng-pristine.ng-untouched.ng-valid.ng-isolate-scope > img"); 
             buttonClick.Click();
-            // Delay for wait a full load AngularJS script
-            Thread.Sleep(1000);
+            Thread.Sleep(1000); // Delay for wait a full load AngularJS script
 
-            // Find a p-block with  balance and get them text
-            var balance = FindXpath("//p[@class='ng-binding']").GetAttribute("textContent");
+            
+            var balance = FindXpath("//p[@class='ng-binding']").GetAttribute("textContent"); // Find a p-block with  balance and get them text
 
             // Check if Angular script is slow and he return "--" 
             if (balance == "--")
@@ -87,75 +89,94 @@ namespace Strelka_DLL
                 Browser.Navigate().Refresh();
                 balance = GetBalance(cardNumber);
             }
-
             return balance; // Return card balance
         }
 
-        // Method for autorization on strelkacard.ru
-        //public string Authorization(string login, string pwd)
-        //{
-        //    Browser.Navigate().GoToUrl(Browser.Url);
-        //    // Find authorization button and click them
-        //    FindCSS(".header-auth-in").Click();
-        //    Thread.Sleep(500); // A little delay for load form
+        /// <summary>
+        /// Method for autorization on strelkacard.ru
+        /// </summary>
+        /// <param name="login">Your login from strelkacard.ru</param>
+        /// <param name="pwd">Your password from strelkacard.ru</param>
+        public void Authorization(string login, string pwd)
+        {
+            Browser.Navigate().GoToUrl(Browser.Url);// Find authorization button and click them
+            FindCSS(".header-auth-in").Click();
+            Thread.Sleep(500); // A little delay for load form
 
-        //    // Find input field, click them and send "login" to form
-        //    IWebElement inputLogin = FindCSS(".login > form:nth-child(3) > div:nth-child(1) > input:nth-child(2)");
-        //    inputLogin.Click();
-        //    inputLogin.SendKeys(login);
+            
+            IWebElement inputLogin = FindCSS(".login > form:nth-child(3) > div:nth-child(1) > input:nth-child(2)"); // Find input field, click them and send "login" to form
+            inputLogin.Click();
+            inputLogin.SendKeys(login);
 
-        //    // Find input field
-        //    IWebElement inputPwd = FindCSS(".login > form:nth-child(3) > div:nth-child(2) > input:nth-child(2)");
-        //    inputPwd.Click();
-        //    inputPwd.SendKeys(pwd);
+            
+            IWebElement inputPwd = FindCSS(".login > form:nth-child(3) > div:nth-child(2) > input:nth-child(2)"); // Find input field
+            inputPwd.Click();
+            inputPwd.SendKeys(pwd);
 
-        //    // Click to checkbox "Запомнить меня"
-        //    FindCSS(".login > form:nth-child(3) > div:nth-child(4) > div:nth-child(1) > label:nth-child(1) > input:nth-child(1)").Click();
+            
+            FindCSS(".login > form:nth-child(3) > div:nth-child(4) > div:nth-child(1) > label:nth-child(1) > input:nth-child(1)").Click(); // Click to checkbox "Запомнить меня"
 
-        //    // Find login-button and click them
-        //    FindCSS("form.ng-dirty > button:nth-child(5)").Click();
-        //    Thread.Sleep(1000); // Wait for load page
+            // Find login-button and click them
+            FindCSS("form.ng-dirty > button:nth-child(5)").Click();
+            Thread.Sleep(2000); // Wait for load page
+        }
 
-        //    // If page title == main page title, we catch exception
-        //    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //    // Подключить обработку ошибки
-        //    //if (Browser.Title == "Стрелка")
-        //    //{
-        //    //    return ExceptionAccont(out codeException);
-        //    //}
-        //    //else
-        //    //{
-        //    //    GetPersonalAccount(out balances, out cardNames);
-        //    //    return "success";
-        //    //}
-        //}
+        /// <summary>
+        /// Get balances from personal account on strelkacard.ru
+        /// </summary>
+        /// <returns>All card balances from your personal account</returns>
+        public List<double> GetPersonalBalance() 
+        {
+            var allBalances = Browser.FindElements(By.ClassName("count"));
+            List<double> balances = new List<double>();
+            for (int i = 0; i < allBalances.Count; i++)
+            {
+                if (allBalances[i].FindElement(By.TagName("p")).TagName == "p")
+                    balances.Add(Convert.ToDouble(allBalances[i].GetAttribute("textContent")));
+            }
+            return balances;
+        }
 
-        //protected void GetPersonalAccount(out List<double> balances, out List<string> cardNames)
-        //{
-        //    Thread.Sleep(1500);
-        //    var mainPageBalance = FindCSS("._red > p:nth-child(1)").GetAttribute("textContent");
-        //    var mainPageNameCard = FindCSS("li.cards-item:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)").GetAttribute("textContent");
-        //    var allBalances = Browser.FindElements(By.ClassName("count"));
-        //    balances = new List<double>(); // out
-        //    // TODO: исправить поиск тегов
-        //    for (int i = 0; i < allBalances.Count; i++)
-        //    {
-        //        if (allBalances[i].FindElement(By.TagName("p")).TagName == "p")
-        //        {
-        //            balances.Add(Convert.ToDouble(allBalances[i].GetAttribute("textContent")));
-        //        }
-        //    }
-        //    var allNameCards = Browser.FindElements(By.ClassName("cards-item-title"));
-        //    cardNames = new List<string>(); // out
-        //    for (int i = 0; i < allNameCards.Count; i++)
-        //    {
-        //        if (allNameCards[i].GetAttribute("textContent") != "Баланс" && allNameCards[i].GetAttribute("textContent") != "Услуги")
-        //        {
-        //            cardNames.Add(allNameCards[i].GetAttribute("textContent"));
-        //        }
-        //    }
+        /// <summary>
+        /// Get card names from personal account on strelkacard.ru
+        /// </summary>
+        /// <returns>All card names from your personal account</returns>
+        public List<string> GetPersonalCardNames() 
+        {
+            var allNameCards = Browser.FindElements(By.ClassName("cards-item-title"));
+            List<string> cardNames = new List<string>();
+            for (int i = 0; i < allNameCards.Count; i++)
+            {
+                if (allNameCards[i].GetAttribute("textContent") != "Баланс" && allNameCards[i].GetAttribute("textContent") != "Услуги")
+                    cardNames.Add(allNameCards[i].GetAttribute("textContent"));
+            }
+            return cardNames;
+        }
 
-        //}
+        /// <summary>
+        /// Get type of cards from personal account on strelkacard.ru
+        /// </summary>
+        public void GetPersonalTypeCards() 
+        {
+        
+        }
+
+
+        /// <summary>
+        /// Get the price of the next ride
+        /// </summary>
+        public void GetPersonalPriceForNextRide() 
+        {
+        
+        }
+
+        /// <summary>
+        /// Catch mail from personal account on strelkacard.ru
+        /// </summary>
+        public void GetPersonalAccountMail() 
+        {
+        
+        }
 
         //public void GetCookies()
         //{
