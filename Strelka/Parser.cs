@@ -23,7 +23,6 @@ namespace Strelka_DLL
 
         public Parser()
         {
-
                 foreach (Browser browser in GetBrowsers()) 
                 {
                     Console.WriteLine($"{browser.Name}: \n\tPath: {browser.Path} \n\tVersion: {browser.Version}");
@@ -49,7 +48,6 @@ namespace Strelka_DLL
                             "Internet Explorer" => _IE.InitializeIE()
                         };
                     }
-
                     if (Browser != null)
                     {
                         break;
@@ -135,6 +133,7 @@ namespace Strelka_DLL
         /// <param name="pwd">Your password from strelkacard.ru</param>
         public void Authorization(string login, string pwd)
         {
+            //TODO: добавить флаг авторизации по которому остальные методы будут понимать, что мы вошли в аккаунт
             Browser.Navigate().GoToUrl(Browser.Url);// Find authorization button and click them
             FindCSS(".header-auth-in").Click();
             Thread.Sleep(500); // A little delay for load form

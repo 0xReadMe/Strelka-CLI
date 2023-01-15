@@ -16,7 +16,7 @@ namespace Strelka_DLL
             ChromeOptions options = new ChromeOptions();
             options.AddArguments(new List<string>() {
                 "disable-gpu",
-                //"headless",
+                "headless",
                 "disable-infobars",
                 "no-sandbox",
                 "disable-images",
