@@ -7,126 +7,94 @@ namespace Strelka_DLL
 {
     public class Parser
     {
-        public IWebDriver Browser { get; set; }
-        private Chrome _chrome = new Chrome();
-        private Mozilla _mozilla = new Mozilla();
-        private InternetExplorer _IE = new InternetExplorer();
-        private Edge _edge = new Edge();
-        private Safari _safari = new Safari();
+        #region Fields
+        private readonly Chrome _chrome = new Chrome();
+        private readonly Mozilla _mozilla = new Mozilla();
+        private readonly InternetExplorer _IE = new InternetExplorer();
+        private readonly Edge _edge = new Edge();
+        private readonly Safari _safari = new Safari();
 
-        bool isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-        bool isOSX = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-        bool isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+        private readonly bool isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+        private readonly bool isOSX = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+        private readonly bool isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+        #endregion
+
+        public IWebDriver Browser { get; set; }
 
         public Parser()
         {
-            if (isWindows)
-            {
+
                 foreach (Browser browser in GetBrowsers()) 
                 {
                     Console.WriteLine($"{browser.Name}: \n\tPath: {browser.Path} \n\tVersion: {browser.Version}");
-                    Browser = browser.Name switch
-                    {
-                        "Google Chrome" => _chrome.InitializeChrome(),
-                        "Mozilla Firefox" => _mozilla.InitializeMozilla(),
-                        "LibreWolf" => _mozilla.InitializeMozilla(),
-                        "Safari" => _safari.InitializeSafari(),
-                        "Edge" => _edge.InitializeEdge(),
-                        "Internet Explorer" => _IE.InitializeIE()
-                    };
-                    break;
-                }
-
-
-
-            }
-            if (isOSX)
-            {
-                // TODO: конструкция свич с выбором браузера на основе парса браузеров
-                try
-                {
-                    Browser = _chrome.InitializeChrome();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
-                    try
-                    {
-                        Browser = _mozilla.InitializeMozilla();
+                    if (isOSX) {
+                        Browser = browser.Name switch
+                        {
+                            "Safari" => _safari.InitializeSafari(),
+                            "Mozilla Firefox" => _mozilla.InitializeMozilla(),
+                            "LibreWolf" => _mozilla.InitializeMozilla(),
+                            "Google Chrome" => _chrome.InitializeChrome(),
+                            "Edge" => _edge.InitializeEdge(),
+                            "Internet Explorer" => _IE.InitializeIE()
+                        };
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
-                        try
+                    if (isWindows) {
+                        Browser = browser.Name switch
                         {
-                            Browser = _IE.InitializeIE();
-                        }
-                        catch
-                        {
-                            try
-                            {
-                                Browser = _edge.InitializeEdge();
-                            }
-                            catch
-                            {
-                                try
-                                {
-                                    Browser = _safari.InitializeSafari();
-                                }
-                                catch
-                                {
-                                    Console.WriteLine(ex);
-                                }
-                            }
-                        }
+                            "Google Chrome" => _chrome.InitializeChrome(),
+                            "Mozilla Firefox" => _mozilla.InitializeMozilla(),
+                            "LibreWolf" => _mozilla.InitializeMozilla(),
+                            "Safari" => _safari.InitializeSafari(),
+                            "Edge" => _edge.InitializeEdge(),
+                            "Internet Explorer" => _IE.InitializeIE()
+                        };
+                    }
 
+                    if (Browser != null)
+                    {
+                        break;
                     }
                 }
-            }
-            if (isLinux)
-            {
-                // TODO: конструкция свич с выбором браузера на основе парса браузеров
-                try
-                {
-                    Browser = _chrome.InitializeChrome();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
-                    try
-                    {
-                        Browser = _mozilla.InitializeMozilla();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
-                        try
-                        {
-                            Browser = _IE.InitializeIE();
-                        }
-                        catch
-                        {
-                            try
-                            {
-                                Browser = _edge.InitializeEdge();
-                            }
-                            catch
-                            {
-                                try
-                                {
-                                    Browser = _safari.InitializeSafari();
-                                }
-                                catch
-                                {
-                                    Console.WriteLine(ex);
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
             
+                //try
+                //{
+                //    Browser = _chrome.InitializeChrome();
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
+                //    try
+                //    {
+                //        Browser = _mozilla.InitializeMozilla();
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
+                //        try
+                //        {
+                //            Browser = _IE.InitializeIE();
+                //        }
+                //        catch
+                //        {
+                //            try
+                //            {
+                //                Browser = _edge.InitializeEdge();
+                //            }
+                //            catch
+                //            {
+                //                try
+                //                {
+                //                    Browser = _safari.InitializeSafari();
+                //                }
+                //                catch
+                //                {
+                //                    Console.WriteLine(ex);
+                //                }
+                //            }
+                //        }
+
+                //    }
+                //} 
         }
 
         #region Methods
@@ -192,6 +160,7 @@ namespace Strelka_DLL
         /// <returns>All card balances from your personal account</returns>
         public List<double> GetPersonalBalance() 
         {
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
             var allBalances = Browser.FindElements(By.ClassName("count"));
             List<double> balances = new List<double>();
             for (int i = 0; i < allBalances.Count; i++)
@@ -208,6 +177,7 @@ namespace Strelka_DLL
         /// <returns>All card names from your personal account</returns>
         public List<string> GetPersonalCardNames() 
         {
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
             var allNameCards = Browser.FindElements(By.ClassName("cards-item-title"));
             List<string> cardNames = new List<string>();
             for (int i = 0; i < allNameCards.Count; i++)
@@ -223,7 +193,7 @@ namespace Strelka_DLL
         /// </summary>
         public void GetPersonalTypeCards() 
         {
-        
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
         }
 
 
@@ -232,7 +202,7 @@ namespace Strelka_DLL
         /// </summary>
         public void GetPersonalPriceForNextRide() 
         {
-        
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
         }
 
         /// <summary>
@@ -240,15 +210,7 @@ namespace Strelka_DLL
         /// </summary>
         public void GetDiscountValidityPeriod() 
         {
-        
-        }
-
-        /// <summary>
-        /// Get mail from personal account on strelkacard.ru. This method requires account authorization
-        /// </summary>
-        public void GetPersonalAccountMail() 
-        {
-        
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
         }
 
         /// <summary>
@@ -256,7 +218,23 @@ namespace Strelka_DLL
         /// </summary>
         public void GetCountRidesForNextLevel() 
         {
-        
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
+        }
+
+        /// <summary>
+        /// Get mail from personal account on strelkacard.ru. This method requires account authorization
+        /// </summary>
+        public string GetPersonalAccountMail()
+        {
+            Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/profile");
+            IWebElement mailForm = FindCSS("input.ng-valid-email");
+            var mail = mailForm.GetAttribute("textContent");
+            if (mail == "") 
+            {
+                mail = "unknown";
+            }
+            return mail;
+
         }
 
         //public void GetCookies()
@@ -310,33 +288,42 @@ namespace Strelka_DLL
         /// Get all browsers and their version, path, name on PC
         /// </summary>
         /// <returns>List of all browsers on PC</returns>
-        private static List<Browser> GetBrowsers()
+        private List<Browser> GetBrowsers()
         {
-            RegistryKey browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Clients\StartMenuInternet"); //on 64bit the browsers are in a different location
-            if (browserKeys == null)
-                browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet");
+            var browsers = new List<Browser>();
+            if (isWindows) {
+                RegistryKey browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Clients\StartMenuInternet"); //on 64bit 
+                if (browserKeys == null)
+                    browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet"); //on 32bit 
 
-            string[] browserNames = browserKeys.GetSubKeyNames(); var browsers = new List<Browser>();
+                string[] browserNames = browserKeys.GetSubKeyNames(); // get browser names
 
-            for (int i = 0; i < browserNames.Length; i++)
-            {
-                Browser browser = new Browser();
+                for (int i = 0; i < browserNames.Length; i++){
+                    Browser browser = new Browser(); // init browser
 
-                RegistryKey browserKey = browserKeys.OpenSubKey(browserNames[i]);
-                browser.Name = (string)browserKey.GetValue(null);
+                    RegistryKey browserKey = browserKeys.OpenSubKey(browserNames[i]); // get from regedit browser name
+                    browser.Name = (string)browserKey.GetValue(null); // set browser name
 
-                RegistryKey browserKeyPath = browserKey.OpenSubKey(@"shell\open\command");
-                browser.Path = StripQuotes(browserKeyPath.GetValue(null).ToString());
+                    RegistryKey browserKeyPath = browserKey.OpenSubKey(@"shell\open\command"); // get from regedit browser path
+                    browser.Path = StripQuotes(browserKeyPath.GetValue(null).ToString()); // set browser path
 
 
-                //RegistryKey browserIconPath = browserKey.OpenSubKey(@"DefaultIcon");
-                //browser.IconPath = browserIconPath.GetValue(null).ToString().StripQuotes();
+                    //RegistryKey browserIconPath = browserKey.OpenSubKey(@"DefaultIcon");
+                    //browser.IconPath = browserIconPath.GetValue(null).ToString().StripQuotes();
 
-                browsers.Add(browser);
-                if (browser.Path != null)
-                    browser.Version = FileVersionInfo.GetVersionInfo(browser.Path).FileVersion;
-                else
-                    browser.Version = "unknown";
+                    browsers.Add(browser); // add browser to list
+                    if (browser.Path != null)
+                        browser.Version = FileVersionInfo.GetVersionInfo(browser.Path).FileVersion; // get version of browser
+                    else
+                        browser.Version = "unknown";
+                    return browsers;
+                }
+            }
+            if (isOSX) {
+                return browsers;
+            }
+            if(isLinux) {
+                return browsers;
             }
             return browsers;
         }
