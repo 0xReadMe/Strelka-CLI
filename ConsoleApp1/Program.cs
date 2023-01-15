@@ -14,17 +14,17 @@ try
     var b = strelka.GetBalance(cardNumber);
     Console.WriteLine($"Ваш баланс: {b}");
 
-    strelka.Authorization(login, pass);
-    Thread.Sleep(2000);
-    var balances = strelka.GetPersonalBalance();
-    var cardNames = strelka.GetPersonalCardNames();
-    foreach(var i in balances)
-        Console.WriteLine("Balance:" + i);
-    foreach(var i in cardNames)
-        Console.WriteLine("Card:" + i);
-    stopwatch.Stop();
+    //strelka.Authorization(login, pass);
+    //Thread.Sleep(2000);
+    //var balances = strelka.GetPersonalBalance();
+    //var cardNames = strelka.GetPersonalCardNames();
+    //foreach(var i in balances)
+    //    Console.WriteLine("Balance:" + i);
+    //foreach(var i in cardNames)
+    //    Console.WriteLine("Card:" + i);
+    //stopwatch.Stop();
 
-    Parser.KillProcesses();
+    //Parser.KillProcesses();
     TimeSpan ts = stopwatch.Elapsed;
 
     string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",

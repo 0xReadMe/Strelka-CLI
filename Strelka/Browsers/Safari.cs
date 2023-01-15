@@ -14,7 +14,7 @@ namespace Strelka_DLL
         {
             SafariOptions options = new();
 
-            SafariDriverService service = SafariDriverService.CreateDefaultService(Path + "\\driver");
+            SafariDriverService service = SafariDriverService.CreateDefaultService(ExecutePath + "\\driver");
             service.HideCommandPromptWindow = true;
             service.SuppressInitialDiagnosticInformation = true;
 

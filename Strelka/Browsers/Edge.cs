@@ -18,7 +18,7 @@ namespace Strelka_DLL
 
                 });
 
-            EdgeDriverService service = EdgeDriverService.CreateDefaultService(Path + "\\driver");
+            EdgeDriverService service = EdgeDriverService.CreateDefaultService(ExecutePath + "\\driver");
             service.HideCommandPromptWindow = true;
             service.SuppressInitialDiagnosticInformation = true;
             return new EdgeDriver(service, options) { Url = URL };

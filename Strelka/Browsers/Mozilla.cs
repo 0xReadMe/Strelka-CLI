@@ -18,7 +18,7 @@ namespace Strelka_DLL
                 // TODO: добавить настройки
             });
 
-            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(Path + "\\driver");
+            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(ExecutePath + "\\driver");
             service.HideCommandPromptWindow = true;
             service.SuppressInitialDiagnosticInformation = true;
 

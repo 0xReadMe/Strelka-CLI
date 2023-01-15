@@ -1,5 +1,7 @@
-﻿using OpenQA.Selenium;
-using System.Collections.ObjectModel;
+﻿using Microsoft.Win32;
+using OpenQA.Selenium;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Strelka_DLL
 {
@@ -12,56 +14,125 @@ namespace Strelka_DLL
         private Edge _edge = new Edge();
         private Safari _safari = new Safari();
 
+        bool isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+        bool isOSX = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+        bool isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+
         public Parser()
         {
-            
-            // TODO: конструкция свич с выбором браузера на основе парса браузеров
-            try
+            if (isWindows)
             {
-                
-                Browser = _chrome.InitializeChrome();
+                foreach (Browser browser in GetBrowsers()) 
+                {
+                    Console.WriteLine($"{browser.Name}: \n\tPath: {browser.Path} \n\tVersion: {browser.Version}");
+                    Browser = browser.Name switch
+                    {
+                        "Google Chrome" => _chrome.InitializeChrome(),
+                        "Mozilla Firefox" => _mozilla.InitializeMozilla(),
+                        "LibreWolf" => _mozilla.InitializeMozilla(),
+                        "Safari" => _safari.InitializeSafari(),
+                        "Edge" => _edge.InitializeEdge(),
+                        "Internet Explorer" => _IE.InitializeIE()
+                    };
+                    break;
+                }
+
+
+
             }
-            catch (Exception e)
+            if (isOSX)
             {
-                Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
+                // TODO: конструкция свич с выбором браузера на основе парса браузеров
                 try
                 {
-                    Browser = _mozilla.InitializeMozilla();
+                    Browser = _chrome.InitializeChrome();
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
+                    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
                     try
                     {
-                        Browser = _IE.InitializeIE();
+                        Browser = _mozilla.InitializeMozilla();
                     }
-                    catch
+                    catch (Exception ex)
                     {
+                        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
                         try
                         {
-                            Browser = _edge.InitializeEdge();
+                            Browser = _IE.InitializeIE();
                         }
                         catch
                         {
                             try
                             {
-                                Browser = _safari.InitializeSafari();
+                                Browser = _edge.InitializeEdge();
                             }
                             catch
                             {
-                                Console.WriteLine(ex);
+                                try
+                                {
+                                    Browser = _safari.InitializeSafari();
+                                }
+                                catch
+                                {
+                                    Console.WriteLine(ex);
+                                }
                             }
                         }
-                    }
 
+                    }
                 }
             }
+            if (isLinux)
+            {
+                // TODO: конструкция свич с выбором браузера на основе парса браузеров
+                try
+                {
+                    Browser = _chrome.InitializeChrome();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
+                    try
+                    {
+                        Browser = _mozilla.InitializeMozilla();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
+                        try
+                        {
+                            Browser = _IE.InitializeIE();
+                        }
+                        catch
+                        {
+                            try
+                            {
+                                Browser = _edge.InitializeEdge();
+                            }
+                            catch
+                            {
+                                try
+                                {
+                                    Browser = _safari.InitializeSafari();
+                                }
+                                catch
+                                {
+                                    Console.WriteLine(ex);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            
         }
 
         #region Methods
-
         /// <summary>
-        /// Method for get balance on strelkacard.ru
+        /// Method for get balance on strelkacard.ru.
+        /// This method do not requires account authorization
         /// </summary>
         /// <param name="cardNumber">Card number</param>
         /// <returns>Balance of strelka card</returns>
@@ -116,7 +187,7 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Get balances from personal account on strelkacard.ru
+        /// Get balances from personal account on strelkacard.ru. This method requires account authorization
         /// </summary>
         /// <returns>All card balances from your personal account</returns>
         public List<double> GetPersonalBalance() 
@@ -132,7 +203,7 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Get card names from personal account on strelkacard.ru
+        /// Get card names from personal account on strelkacard.ru. This method requires account authorization
         /// </summary>
         /// <returns>All card names from your personal account</returns>
         public List<string> GetPersonalCardNames() 
@@ -148,7 +219,7 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Get type of cards from personal account on strelkacard.ru
+        /// Get type of cards from personal account on strelkacard.ru. This method requires account authorization
         /// </summary>
         public void GetPersonalTypeCards() 
         {
@@ -157,7 +228,7 @@ namespace Strelka_DLL
 
 
         /// <summary>
-        /// Get the price of the next ride
+        /// Get the price of the next ride. This method requires account authorization
         /// </summary>
         public void GetPersonalPriceForNextRide() 
         {
@@ -165,7 +236,7 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Get discount validity period
+        /// Get discount validity period. This method requires account authorization
         /// </summary>
         public void GetDiscountValidityPeriod() 
         {
@@ -173,7 +244,7 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Get mail from personal account on strelkacard.ru
+        /// Get mail from personal account on strelkacard.ru. This method requires account authorization
         /// </summary>
         public void GetPersonalAccountMail() 
         {
@@ -181,9 +252,9 @@ namespace Strelka_DLL
         }
 
         /// <summary>
-        /// Get the count of rides to go to the next discount level
+        /// Get the count of rides to go to the next discount level. This method requires account authorization
         /// </summary>
-        public void RideForNextLevel() 
+        public void GetCountRidesForNextLevel() 
         {
         
         }
@@ -236,13 +307,48 @@ namespace Strelka_DLL
         }
 
         /// <summary>
+        /// Get all browsers and their version, path, name on PC
+        /// </summary>
+        /// <returns>List of all browsers on PC</returns>
+        private static List<Browser> GetBrowsers()
+        {
+            RegistryKey browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Clients\StartMenuInternet"); //on 64bit the browsers are in a different location
+            if (browserKeys == null)
+                browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet");
+
+            string[] browserNames = browserKeys.GetSubKeyNames(); var browsers = new List<Browser>();
+
+            for (int i = 0; i < browserNames.Length; i++)
+            {
+                Browser browser = new Browser();
+
+                RegistryKey browserKey = browserKeys.OpenSubKey(browserNames[i]);
+                browser.Name = (string)browserKey.GetValue(null);
+
+                RegistryKey browserKeyPath = browserKey.OpenSubKey(@"shell\open\command");
+                browser.Path = StripQuotes(browserKeyPath.GetValue(null).ToString());
+
+
+                //RegistryKey browserIconPath = browserKey.OpenSubKey(@"DefaultIcon");
+                //browser.IconPath = browserIconPath.GetValue(null).ToString().StripQuotes();
+
+                browsers.Add(browser);
+                if (browser.Path != null)
+                    browser.Version = FileVersionInfo.GetVersionInfo(browser.Path).FileVersion;
+                else
+                    browser.Version = "unknown";
+            }
+            return browsers;
+        }
+
+        /// <summary>
         /// Static method for kill our browser processes
         /// </summary>
         public static void KillProcesses()
         {
             List<string> name = new List<string> { "chromedriver", "geckodriver" }; // Names of processes, which need to kill
-            System.Diagnostics.Process[] process = System.Diagnostics.Process.GetProcesses(); // Get all processes in system
-            foreach (System.Diagnostics.Process processName in process) // Go through each process
+            Process[] process = Process.GetProcesses(); // Get all processes in system
+            foreach (Process processName in process) // Go through each process
             {
                 foreach (string s in name)
                 {
@@ -250,6 +356,19 @@ namespace Strelka_DLL
                         processName.Kill(); // Kill them
                 }
             }
+        }
+
+        /// <summary>
+        /// If string begins and ends with quotes, they are removed
+        /// </summary>
+        /// <param name="s">Your string with quotes</param>
+        /// <returns>String without quotes</returns>
+        public static string StripQuotes(string s)
+        {
+            if (s.EndsWith("\"") && s.StartsWith("\""))
+                return s.Substring(1, s.Length - 2);
+            else
+                return s;
         }
         #endregion
     }

@@ -1,10 +1,18 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.Win32;
+using OpenQA.Selenium;
+using System.Diagnostics;
 
 namespace Strelka_DLL
 {
-    abstract class Browser
+    class Browser
     {
         protected const string URL = "https://strelkacard.ru/";
-        public static string Path => Environment.CurrentDirectory;        
+        protected static string ExecutePath => Environment.CurrentDirectory;
+        public string Name { get; set; }
+        public string Path { get; set; }
+        //public string IconPath { get; set; }
+        public string Version { get; set; }
+
+        
     }
 }

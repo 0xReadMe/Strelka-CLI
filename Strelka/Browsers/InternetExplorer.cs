@@ -14,7 +14,7 @@ namespace Strelka_DLL
             InternetExplorerOptions options = new InternetExplorerOptions();
             //options.AddAdditionalInternetExplorerOption();
 
-            InternetExplorerDriverService service = InternetExplorerDriverService.CreateDefaultService(Path + "\\driver");
+            InternetExplorerDriverService service = InternetExplorerDriverService.CreateDefaultService(ExecutePath + "\\driver");
             service.HideCommandPromptWindow = true;
             service.SuppressInitialDiagnosticInformation = true;
 

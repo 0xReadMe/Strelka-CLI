@@ -25,7 +25,7 @@ namespace Strelka_DLL
                 "ignore-certificate-errors"
                 });
 
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService(Path + "\\driver");
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService(ExecutePath + "\\driver");
             service.HideCommandPromptWindow = true;
             service.SuppressInitialDiagnosticInformation = true;
             return new ChromeDriver(service, options) { Url = URL };
