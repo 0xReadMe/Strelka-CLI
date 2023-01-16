@@ -8,9 +8,9 @@ namespace Strelka_DLL
     {
         protected const string URL = "https://strelkacard.ru/";
         protected static string ExecutePath => Environment.CurrentDirectory;
-        public string Name { get; set; }
-        public string Path { get; set; }
-        public string Version { get; set; }
-        //public string IconPath { get; set; }
+        public string? Name { get; set; }
+        public string? Path { get; set; }
+        public string? Version { get; set; }
+        //public string? IconPath { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using OpenQA.Selenium;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -23,76 +24,76 @@ namespace Strelka_DLL
 
         public Parser()
         {
-                foreach (Browser browser in GetBrowsers()) 
+            foreach (Browser browser in GetBrowsers()) 
+            {
+                if (isOSX) {
+                    Browser = browser.Name switch
+                    {
+                        "Safari" => _safari.InitializeSafari(),
+                        "Mozilla Firefox" => _mozilla.InitializeMozilla(),
+                        "LibreWolf" => _mozilla.InitializeMozilla(),
+                        "Google Chrome" => _chrome.InitializeChrome(),
+                        "Edge" => _edge.InitializeEdge(),
+                        "Internet Explorer" => _IE.InitializeIE()
+                    };
+                }
+                if (isWindows) {
+                    Browser = browser.Name switch
+                    {
+                        "Google Chrome" => _chrome.InitializeChrome(),
+                        "Mozilla Firefox" => _mozilla.InitializeMozilla(),
+                        "LibreWolf" => _mozilla.InitializeMozilla(),
+                        "Safari" => _safari.InitializeSafari(),
+                        "Edge" => _edge.InitializeEdge(),
+                        "Internet Explorer" => _IE.InitializeIE()
+                    };
+                }
+                if (Browser != null)
                 {
                     Console.WriteLine($"{browser.Name}: \n\tPath: {browser.Path} \n\tVersion: {browser.Version}");
-                    if (isOSX) {
-                        Browser = browser.Name switch
-                        {
-                            "Safari" => _safari.InitializeSafari(),
-                            "Mozilla Firefox" => _mozilla.InitializeMozilla(),
-                            "LibreWolf" => _mozilla.InitializeMozilla(),
-                            "Google Chrome" => _chrome.InitializeChrome(),
-                            "Edge" => _edge.InitializeEdge(),
-                            "Internet Explorer" => _IE.InitializeIE()
-                        };
-                    }
-                    if (isWindows) {
-                        Browser = browser.Name switch
-                        {
-                            "Google Chrome" => _chrome.InitializeChrome(),
-                            "Mozilla Firefox" => _mozilla.InitializeMozilla(),
-                            "LibreWolf" => _mozilla.InitializeMozilla(),
-                            "Safari" => _safari.InitializeSafari(),
-                            "Edge" => _edge.InitializeEdge(),
-                            "Internet Explorer" => _IE.InitializeIE()
-                        };
-                    }
-                    if (Browser != null)
-                    {
-                        break;
-                    }
+                    break;
                 }
+            }
             
-                //try
-                //{
-                //    Browser = _chrome.InitializeChrome();
-                //}
-                //catch (Exception e)
-                //{
-                //    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
-                //    try
-                //    {
-                //        Browser = _mozilla.InitializeMozilla();
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
-                //        try
-                //        {
-                //            Browser = _IE.InitializeIE();
-                //        }
-                //        catch
-                //        {
-                //            try
-                //            {
-                //                Browser = _edge.InitializeEdge();
-                //            }
-                //            catch
-                //            {
-                //                try
-                //                {
-                //                    Browser = _safari.InitializeSafari();
-                //                }
-                //                catch
-                //                {
-                //                    Console.WriteLine(ex);
-                //                }
-                //            }
-                //        }
+            //try
+            //{
+            //    Browser = _chrome.InitializeChrome();
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine($"Возникли пробелемы с бразуером CHROME\n {e}");
+            //    try
+            //    {
+            //        Browser = _mozilla.InitializeMozilla();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine($"Возникли проблемы с браузером FIREFOX\n {ex}");
+            //        try
+            //        {
+            //            Browser = _IE.InitializeIE();
+            //        }
+            //        catch
+            //        {
+            //            try
+            //            {
+            //                Browser = _edge.InitializeEdge();
+            //            }
+            //            catch
+            //            {
+            //                try
+            //                {
+            //                    Browser = _safari.InitializeSafari();
+            //                }
+            //                catch
+            //                {
+            //                    Console.WriteLine(ex);
+            //                }
+            //            }
+            //        }
 
-                //    }
-                //} 
+            //    }
+            //} 
         }
 
         #region Methods
@@ -123,6 +124,7 @@ namespace Strelka_DLL
                 Browser.Navigate().Refresh();
                 balance = GetBalance(cardNumber);
             }
+            
             return balance; // Return card balance
         }
 
@@ -236,52 +238,43 @@ namespace Strelka_DLL
 
         }
 
-        //public void GetCookies()
-        //{
-        //    string[] cookies = File.ReadAllText("ourCookie.txt").Trim().Split("; ");
-        //    Browser.Manage().Cookies.DeleteAllCookies();
-        //    foreach (string cookie in cookies)
-        //    {
-        //        Console.WriteLine(cookie);
-        //        Browser.Manage().Cookies.AddCookie(new Cookie(cookie.Split('=')[0], cookie.Split('=')[1]));
-        //    }
-        //    Browser.Navigate().GoToUrl("https://lk.strelkacard.ru/cards");
-        //    var findCookie = Browser.Manage().Cookies.AllCookies;
-        //    var s = new List<string>();
-        //    var b = new List<string>();
-        //    foreach (var cook in findCookie)
-        //    {
-        //        s.Add(cook.Value);
+        /// <summary>
+        /// Get cookie on the site
+        /// </summary>
+        /// <returns>Cookie collection</returns>
+        public ReadOnlyCollection<Cookie> GetCookies() => Browser.Manage().Cookies.AllCookies;
 
-        //        string item = string.Join(Environment.NewLine, cook.Name);
-        //        b.Add(item);
+        /// <summary>
+        /// Save cookie to the file
+        /// </summary>
+        private void SaveCookieToFile() 
+        {
+        
+        }
 
-        //    }
-        //    using (StreamWriter outF = new StreamWriter("findCookie.txt"))
-        //    {
-        //        for (int i = 0; i < s.Count; i++)
-        //            outF.WriteLine(b[i] + "=" + s[i]);
-        //    }
+        /// <summary>
+        /// Get cookie from file
+        /// </summary>
+        private void GetCookieFromFile() 
+        {
+        
+        }
 
-
-        //}
+        /// <summary>
+        /// Add cookies to the site
+        /// </summary>
+        public void PushCookies() 
+        {
+        
+        }
         #endregion
 
         #region UtilsMethods
 
         // Methods to simplify code reading
-        private IWebElement FindCSS(string SelectorCSS)
-        {
-            return Browser.FindElement(By.CssSelector(SelectorCSS));
-        }
-        private IWebElement FindXpath(string xpath)
-        {
-            return Browser.FindElement(By.XPath(xpath));
-        }
-        private IWebElement FindClass(string className)
-        {
-            return Browser.FindElement(By.ClassName(className));
-        }
+        private IWebElement FindCSS(string SelectorCSS) => Browser.FindElement(By.CssSelector(SelectorCSS));
+        private IWebElement FindXpath(string xpath) => Browser.FindElement(By.XPath(xpath));
+        private IWebElement FindClass(string className) => Browser.FindElement(By.ClassName(className));
 
         /// <summary>
         /// Get all browsers and their version, path, name on PC
@@ -292,9 +285,10 @@ namespace Strelka_DLL
             var browsers = new List<Browser>();
             if (isWindows) {
                 RegistryKey browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Clients\StartMenuInternet"); //on 64bit 
-                if (browserKeys == null)
+                if (browserKeys == null) 
+                {
                     browserKeys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Clients\StartMenuInternet"); //on 32bit 
-
+                }
                 string[] browserNames = browserKeys.GetSubKeyNames(); // get browser names
 
                 for (int i = 0; i < browserNames.Length; i++){
@@ -315,8 +309,8 @@ namespace Strelka_DLL
                         browser.Version = FileVersionInfo.GetVersionInfo(browser.Path).FileVersion; // get version of browser
                     else
                         browser.Version = "unknown";
-                    return browsers;
                 }
+                return browsers;
             }
             if (isOSX) {
                 return browsers;
